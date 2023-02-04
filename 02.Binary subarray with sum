@@ -1,0 +1,28 @@
+Method 01:Binary subarray with sum
+
+
+class Solution
+{
+    int numberOfSubarrays(int arr[], int N, int target){
+        // code here
+        HashMap<Integer, Integer> hm=new HashMap<>();
+        int count=0;
+        int sum=0;
+        for(int i=0;i<N;i++){
+            sum=sum+arr[i];
+        
+        
+        if(sum==target){
+            count+=1;
+        }
+        
+        if(hm.containsKey(sum-target)){
+            count+=hm.get(sum-target);
+        }
+        
+        hm.put(sum,hm.getOrDefault(sum,0)+1);
+        }
+        
+        return count;
+    }
+}
