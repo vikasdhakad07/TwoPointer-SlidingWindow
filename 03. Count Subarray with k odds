@@ -1,0 +1,25 @@
+Method 01: Count Subarray with k odds
+
+
+class Solution {
+    public static int countSubarray(int n, int[] nums, int k) {
+        // code here
+        int count=0, i=0, j=0, result=0, odd=0;
+        for(i=0;i<n;i++){
+            if(nums[i]%2!=0){
+                 odd++;
+                if(odd>=k){
+                     count=1;
+                while(nums[j++]%2==0){
+                     count++;
+                }
+                result+=count;
+                }
+            }
+            else if(odd>=k){
+                result+=count;
+            }
+        }
+        return result;
+    }
+}
