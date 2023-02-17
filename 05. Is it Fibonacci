@@ -1,0 +1,21 @@
+Mthod 01: Is it Fibonacci
+
+
+class Solution {
+    static long solve(int N, int K, ArrayList<Long> GeekNum) {
+        //code here
+
+        long sum=0;
+        for(long n:GeekNum){
+            sum=sum+n;
+        }
+
+        for(int i=K;i<N;i++){
+            GeekNum.add(sum);
+            sum=sum+GeekNum.get(i);
+            sum=sum-GeekNum.get(i-K);
+        }
+
+        return GeekNum.get(N-1);
+    }
+}
