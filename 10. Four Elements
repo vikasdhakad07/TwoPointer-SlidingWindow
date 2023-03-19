@@ -1,0 +1,28 @@
+Method 01: Four Elements
+
+
+class Compute
+{
+    boolean find4Numbers(int A[], int n, int X) 
+    {
+        
+        Arrays.sort(A);
+       for(int i=0;i<n-3;i++){
+           for(int j=i+1;j<n-2;j++){
+               int l=j+1, r=n-1;
+               while(l<r){
+                   if(A[l]+A[r]+A[i]+A[j]==X){
+                       return true;
+                   }
+                   if(A[l]+A[r]+A[i]+A[j]<X){
+                       l++;
+                   }
+                   else{
+                       r--;
+                   }
+               }
+           }
+       }
+        return false;
+    }
+}
