@@ -1,0 +1,27 @@
+Method 01: Pair with given sum in a sorted array
+
+
+class Solution{
+    int Countpair(int a[], int n, int sum)
+    {
+        // Complete the function
+        int count=0;
+        int i=0, j=n-1;
+        while(i<j){
+            if(a[i]+a[j]==sum){
+                count++;
+                i++;
+            }
+            else if(a[i]+a[j]<sum){
+                i++;
+            }
+            else if(a[i]+a[j]>sum){
+                j--;
+            }
+        }
+        if(count==0){
+            return -1;
+        }
+        return count;
+    }
+}
