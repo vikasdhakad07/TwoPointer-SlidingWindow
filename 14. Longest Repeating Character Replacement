@@ -1,0 +1,22 @@
+Method 01: Longest Repeating Character Replacement
+
+
+class Solution {
+    static int characterReplacement(String S, int K) {
+        // code here
+        int i=0;
+        int n=S.length();
+        int[] count = new int[26];
+        int maxCount=0;
+        int max=0;
+        for(int j=0;j<n;j++){
+             maxCount = Math.max(maxCount, ++count[S.charAt(j) - 'A']);
+            while(j-i+1-maxCount>K){
+                count[S.charAt(i)-'A']--;
+                 i++;
+            }
+            max=Math.max(max, j-i+1);
+        }
+        return max;
+    }
+}
