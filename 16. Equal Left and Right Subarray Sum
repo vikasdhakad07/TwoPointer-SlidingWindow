@@ -1,0 +1,25 @@
+Method 01: Equal Left and Right Subarray Sum
+
+
+class Solution{
+	int equalSum(int [] A, int N) {
+		//Write your code here
+		if(N==1) return 1;
+		int i=0, j=N-1;
+		int sum=0, suml=0;
+		while(i<=j){
+		     if(i==j && suml==sum){
+		        return i+1;
+		    }
+		    else if(sum<suml){
+		        sum=sum+A[i];
+		        i++;
+		    }
+		    else{
+		        suml=suml+A[j];
+		        j--;
+		    }
+		}
+		return -1;
+	}
+}
